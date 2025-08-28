@@ -18,8 +18,8 @@ for (let heart of hearts) {
 let copyCounter = 0;
 let coinCounter = 100;
 
-const copyCountEl = document.getElementById("copy-count");
-const coinCountEl = document.getElementById("coin-count");
+const copyCountEl = getById("copy-count");
+const coinCountEl = getById("coin-count");
 
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", function () {
@@ -41,6 +41,8 @@ document.querySelectorAll(".call-btn").forEach((btn) => {
     const card = this.closest(".cards");
     const title = card.querySelector("h1").innerText;
     const number = card.querySelector(".number").innerText;
+    const subTitle = card.querySelector(".sub-title").innerText;
+    const time = new Date().toLocaleTimeString();
 
     const coinCount = getById("coin-count").innerText;
     const currentCoin = Number(coinCount);
@@ -54,24 +56,35 @@ document.querySelectorAll(".call-btn").forEach((btn) => {
     }
     newCoin = currentCoin - 20;
     getById("coin-count").innerText = newCoin;
-    // Coin -20
-    // coinCounter -= 20;
-    // if (coinCounter < 20) coinCounter = 0;
-    // coinCountEl.textContent = "Coins: " + coinCounter;
+
+    //
+
+    //
+    const callHistoryContainer = getById("call-2nd-container");
+    const newHistory = document.createElement("div");
+    newHistory.innerHTML = `  <div id="fuck" class=" bg-[#FAFAFA] rounded-xl mb-3 p-2 ">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h2 class="font-semibold text-sm">${subTitle}</h2>
+                  <p class="font-semibold text-sm">${number}</p>
+                </div>
+                <p class="font-semibold text-sm"> ${time}</p>
+              </div>
+            </div>
+    `;
+    callHistoryContainer.appendChild(newHistory);
   });
 });
 
-// getById("all-cards").addEventListener("click", function (e) {
-//   if (e.target.className.includes("call-btn")) {
-//     alert("Call btn clicked");
-//     const callButton = e.target;
-//   }
-// });
+// clear button funtionality
 
-// .addEventListener("click", function () {
-//   console.log("heart icon clicked");
-//   let currentHeartCount = getById("heart-count").innerText;
+getById("clear-btn").addEventListener("click", function () {
+  const callHistoryContainer = getById("call-2nd-container");
+  callHistoryContainer.style.display = "none";
 
-//   let newHeartCount = Number(currentHeartCount) + 1;
-//   getById("heart-count").innerText = newHeartCount;
-// });
+  const historyTitle = getById("hiistory-title");
+  const clearBtn = getById("clear-btn");
+
+  callHistoryContainer.innerHTML = "";
+  // console.log(callHistoryContainer.childNodes.childNodes);
+});

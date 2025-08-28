@@ -331,28 +331,25 @@
           </div>
         </section>
         <section class="card-section-right md:col-span-3 md:mt-10 md:mr-5">
-          <div class="bg-white rounded-xl h-full p-4">
+          <div
+            id="call-history-container"
+            class="bg-white rounded-xl h-full p-4"
+          >
             <div>
               <div class="flex items-center justify-between p-1">
-                <p class="font-semibold">
+                <p id="history-title" class="font-semibold">
                   <i class="fa-solid fa-clock-rotate-left"></i> Call History
                 </p>
-                <button class="btn bg-green-500 rounded-2xl text-white">
+                <button
+                  id="clear-btn"
+                  class="btn bg-green-500 rounded-2xl text-white"
+                >
                   Clear
                 </button>
               </div>
             </div>
-            <div class="border-2 bg-gray-200 rounded-xl">
-              <div class="flex items-center justify-between">
-                <div>
-                  <h2 class="font-semibold text-sm">Subtitle</h2>
-                  <p class="font-semibold text-sm">999</p>
-                </div>
-                <p class="font-semibold text-sm">Date and time</p>
-              </div>
-            </div>
+            <div id="call-2nd-container"></div>
           </div>
-          <div></div>
         </section>
       </div>
     </section>
