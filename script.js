@@ -34,6 +34,33 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
   });
 });
 
+//  call button finctionality
+
+document.querySelectorAll(".call-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const card = this.closest(".cards");
+    const title = card.querySelector("h1").innerText;
+    const number = card.querySelector(".number").innerText;
+
+    const coinCount = getById("coin-count").innerText;
+    const currentCoin = Number(coinCount);
+    let newCoin = currentCoin;
+    if (newCoin < 20) {
+      alert(` ❌ Not sufficient coin. Minimum 20 coin is necessary to call`);
+
+      return;
+    } else {
+      alert(`📞 Calling ${title} - ${number}`);
+    }
+    newCoin = currentCoin - 20;
+    getById("coin-count").innerText = newCoin;
+    // Coin -20
+    // coinCounter -= 20;
+    // if (coinCounter < 20) coinCounter = 0;
+    // coinCountEl.textContent = "Coins: " + coinCounter;
+  });
+});
+
 // getById("all-cards").addEventListener("click", function (e) {
 //   if (e.target.className.includes("call-btn")) {
 //     alert("Call btn clicked");
