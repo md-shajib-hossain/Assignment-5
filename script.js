@@ -2,11 +2,11 @@ function getById(id) {
   const element = document.getElementById(id);
   return element;
 }
+//  heart count functionality
 
 const hearts = document.getElementsByClassName("heart-class");
 for (let heart of hearts) {
   heart.addEventListener("click", function () {
-    // alert("I Love You");
     let currentHeartCount = getById("heart-count").innerText;
     newHeartCount = Number(currentHeartCount) + 1;
     getById("heart-count").innerText = newHeartCount;
@@ -80,11 +80,8 @@ document.querySelectorAll(".call-btn").forEach((btn) => {
 
 getById("clear-btn").addEventListener("click", function () {
   const callHistoryContainer = getById("call-2nd-container");
-  callHistoryContainer.style.display = "none";
-
   const historyTitle = getById("hiistory-title");
   const clearBtn = getById("clear-btn");
 
   callHistoryContainer.innerHTML = "";
-  // console.log(callHistoryContainer.childNodes.childNodes);
 });
