@@ -48,7 +48,7 @@ document.querySelectorAll(".call-btn").forEach((btn) => {
     const currentCoin = Number(coinCount);
     let newCoin = currentCoin;
     if (newCoin < 20) {
-      alert(` ❌ Not sufficient coin. Minimum 20 coin is necessary to call`);
+      alert(` ❌ No sufficient coin. Minimum 20 coin is necessary to call`);
 
       return;
     } else {
@@ -84,4 +84,12 @@ getById("clear-btn").addEventListener("click", function () {
   const clearBtn = getById("clear-btn");
 
   callHistoryContainer.innerHTML = "";
+});
+
+// coin recharge functionality
+
+getById("coin-image").addEventListener("dblclick", function () {
+  const rechargeCoin = Number(getById("coin-count").innerText);
+  getById("coin-count").innerText = rechargeCoin + 100;
+  alert("100 coin recharged succesfully 😘😘😘");
 });
